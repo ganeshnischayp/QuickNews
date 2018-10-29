@@ -24,8 +24,8 @@
   </nav> -->
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+  <a class="navbar-brand" href="#">NEWS</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -35,23 +35,34 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only"></span></a>
       </li>
-      <li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
+      <li  class="nav-item">
         <a class="nav-link" [routerLink]="['/additem']">ADD NEWS</a>
       </li>
-      <li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
+      <li *ngIf="afAuth.user | async as user" class="nav-item">
         <a class="nav-link" [routerLink]="['/item']">NEWS</a>
       </li>
+      <li *ngIf="afAuth.user | async as user" class="nav-item">
+        <a class="nav-link" [routerLink]="['/queries']">QUERIES</a>
+      </li>
+      <li *ngIf="afAuth.user | async as user" class="nav-item">
+        <a class="nav-link" [routerLink]="['/subscribe']">SUBSCRIBE_OFFLINE</a>
+      </li>
+      <li *ngIf="afAuth.user | async as user" class="nav-item">
+          <a class="nav-link" [routerLink]="['/subscribers']">VIEW_SUBSCRIBES</a>
+        </li>
       <!-- <li #showLogin class="nav-item">
         <a class="nav-link" (click)="login()" style="cursor: pointer;" >LOGIN</a>
       </li> -->
-      <li *ngIf="afAuth.user | async as user; else showLogin" class="nav-item">
+      <li *ngIf="afAuth.user | async as user" class="nav-item">
           <a class="nav-link" (click)="logout()" style="cursor: pointer;">LOGOUT</a>
       </li>
     </ul>
     
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search"> -->
+      <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
+      <button *ngIf="auth.canEdit(user) | async as user"  (click)="editPost()" class="btn btn-secondary my-2 my-sm-0" type="submit">ADD ITEM</button>
+      
     </form>
   </div>
 

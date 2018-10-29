@@ -1,3 +1,10 @@
-<p>
-  item-desc works!
-</p>
+<div *ngIf="items">
+    <a [routerLink]="[ '/item']">Go Back</a>
+    <br>
+    <h2 >{{items?.title }}</h2>
+    <p>{{items?.description }}</p>
+    <p>{{items?.category}}</p>
+    <p>{{items?.region}}</p>
+    <p>{{items?.stream}}</p>
+    <img  class="thumbnail" [src]="profileUrl | async" />
+</div>

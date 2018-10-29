@@ -1,0 +1,20 @@
+<div *ngIf="subscribers?.length > 0;else noItems" >
+  <ul *ngFor="let subscriber of subscribers" style="list-style:none">
+    <li>
+      <h2>{{subscriber.name}}</h2>
+      <h5>{{subscriber.email}}</h5>
+      <p>{{subscriber.address}}</p>
+      <p>{{subscriber.number}}</p>
+
+
+
+    </li>
+  </ul>
+</div>
+
+
+<ng-template #noItems>
+  <div class="container">
+    <strong>LOADING WAIT</strong>
+  </div>
+</ng-template>

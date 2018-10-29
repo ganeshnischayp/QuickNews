@@ -1,0 +1,37 @@
+<p></p>
+<form  (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" placeholder="Enter name here" [(ngModel)]="subscriber.name">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" placeholder="Enter email here" [(ngModel)]="subscriber.email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="address" placeholder="Enter address here" [(ngModel)]="subscriber.address">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="address" placeholder="Enter phone number here" [(ngModel)]="subscriber.number">
+    </div>
+  </div>
+
+ 
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </div>
+  </div>
+</form>

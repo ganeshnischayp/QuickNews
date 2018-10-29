@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
   <div class="card-content">
     <span class="card-title">Add Item</span>
     <form (ngSubmit)="onSubmit()" class="col s6">
@@ -15,4 +15,45 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
+<a [routerLink]="[ '/item']">Go Back</a>
+<br>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Title</label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="Title" [(ngModel)]="item.title" name="title" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Category</label>
+        <input type="text" class="form-control" id="inputPassword4" placeholder="Category" [(ngModel)]="item.category" name="category" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Description</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Description" [(ngModel)]="item.description" name="description" required>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Region</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Region" [(ngModel)]="item.region" name="region" required>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Stream</label>
+        <input type="text" class="form-control" id="inputCity" placeholder="Stream" [(ngModel)]="item.stream" name="stream" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Scam</label>
+        <select id="inputState" class="form-control">
+          <option selected>Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Image</label>
+        <input   name="image" id="image" type="file" class="form-control">
+      </div>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>

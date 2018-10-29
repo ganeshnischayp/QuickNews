@@ -5,4 +5,5 @@ export interface Item {
     region?:string;
     stream?:string;
     description?:string;
+    image?:any;
   }
