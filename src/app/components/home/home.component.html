@@ -1,23 +1,24 @@
+
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
 
-    <main role="main" class="inner cover">
-      <h1 class="cover-heading">LOGIN PAGE</h1>
-      <p class="lead">SIGN IN WITH GOOGLE TO VIEW OUR NEWS</p>
-      <div *ngIf="afAuth.user | async as user; else showOther" class="lead">
-        <a  class="btn btn-lg btn-secondary">LOGGED IN</a>
-        <h3>{{user.displayName}}</h3>
-        <p>UID: {{user.uid}}</p>
-        <h6>email: {{user.email}}</h6>
-        <img [src] = "user.photoURL">
-      </div>
-    </main>
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">LOGIN PAGE</h1>
+    <p class="lead">SIGN IN WITH GOOGLE TO VIEW OUR NEWS</p>
+    <div *ngIf="afAuth.user | async as user; else showOther" class="lead">
+      <a class="btn btn-lg btn-secondary">LOGGED IN</a>
+      <h3>{{user.displayName}}</h3>
+      <p>UID: {{user.uid}}</p>
+      <h6>email: {{user.email}}</h6>
+      <img [src]="user.photoURL">
+    </div>
+  </main>
 
-   
-  </div>
 
-  <ng-template #showOther>
-      <p  class="lead">
-          <a  (click)="auth.googleLogin()" class="btn btn-lg btn-secondary">LOGIN WITH GOOGLE</a>
-        </p>
-  </ng-template>
+</div>
+
+<ng-template #showOther>
+  <p class="lead">
+    <a (click)="auth.googleLogin()" class="btn btn-lg btn-secondary">LOGIN WITH GOOGLE</a>
+  </p>
+</ng-template>
