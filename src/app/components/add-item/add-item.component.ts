@@ -17,7 +17,8 @@ export class AddItemComponent implements OnInit {
     category: '',
     region: '',
     stream: '',
-    image: ''
+    image: '',
+    language: ''
   }
 
   constructor(
@@ -42,6 +43,7 @@ export class AddItemComponent implements OnInit {
       this.item.stream = '';
       this.item.region = '';
       this.item.image = '';
+      this.item.language = '';
     };
 
     this.router.navigate(['item']);

@@ -95,6 +95,7 @@ export class ItemsService {
         region:item.region,
         stream:item.stream,
         description: item.description,
+        language: item.language,
         image:path
       }
       this.itemsCollection.add(data)

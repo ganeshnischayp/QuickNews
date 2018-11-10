@@ -14,8 +14,9 @@
 <p>
 
 </p>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="dropdown" style="display:inline-block;">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
     Region
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -30,7 +31,24 @@
 
 
 
- 
+
+  </div>
+</div>
+&nbsp;
+<div class="dropdown" style="display:inline-block;">
+
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    Language
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button (click)="filterByLanguage('kannada')" class="dropdown-item" type="button">Kannada</button>
+    <button (click)="filterByLanguage('hindi')" class="dropdown-item" type="button">Hindi</button>
+    <button (click)="filterByLanguage('english')" class="dropdown-item" type="button">English</button>
+    <button (click)="filterByLanguage('malayalam')" class="dropdown-item" type="button">Malayalam</button>
+
+
+
   </div>
 </div>
 

@@ -21,6 +21,9 @@ export class QueriesComponent implements OnInit {
   categoryFilter$: BehaviorSubject<string | null>;
   streamFilter$: BehaviorSubject<string | null>;
   regionFilter$: BehaviorSubject<string | null>;
+  languageFilter$: BehaviorSubject<string | null>;
+
+
 
   constructor(
     
@@ -31,18 +34,22 @@ export class QueriesComponent implements OnInit {
     this.categoryFilter$ = new BehaviorSubject(null);
     this.streamFilter$ = new BehaviorSubject(null);
     this.regionFilter$ = new BehaviorSubject(null);
+    this.languageFilter$ = new BehaviorSubject(null);
+
     
     this.items = combineLatest(
       this.categoryFilter$,
       this.streamFilter$,
-      this.regionFilter$
+      this.regionFilter$,
+      this.languageFilter$
     ).pipe(
-      switchMap(([category, stream, region]) =>
+      switchMap(([category, stream, region, language]) =>
         afs.collection<Item>('items', ref => {
           let query: firebase.firestore.CollectionReference | firebase.firestore.Query  = ref;
           if (category) { query = query.where('category', '==', category) };
           if (stream) { query = query.where('stream', '==', stream) };
           if (region) { query = query.where('region', '==', region) };
+          if (language) { query = query.where('language', '==', language) };
           return query;
         }).valueChanges()
       )
@@ -71,6 +78,9 @@ export class QueriesComponent implements OnInit {
   }
   filterByRegion(region: string|null) {
     this.regionFilter$.next(region); 
+  }
+  filterByLanguage(language: string|null) {
+    this.languageFilter$.next(language); 
   }
   // sendSports(){
      

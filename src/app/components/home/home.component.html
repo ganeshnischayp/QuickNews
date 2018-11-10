@@ -1,9 +1,9 @@
-
+<!-- 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
 
   <main role="main" class="inner cover">
-    <h1 class="cover-heading">LOGIN PAGE</h1>
+    <h1 class="">LOGIN PAGE</h1>
     <p class="lead">SIGN IN WITH GOOGLE TO VIEW OUR NEWS</p>
     <div *ngIf="afAuth.user | async as user; else showOther" class="lead">
       <a class="btn btn-lg btn-secondary">LOGGED IN</a>
@@ -21,4 +21,39 @@
   <p class="lead">
     <a (click)="auth.googleLogin()" class="btn btn-lg btn-secondary">LOGIN WITH GOOGLE</a>
   </p>
-</ng-template>
+</ng-template> -->
+<header class="masthead d-flex">
+
+    <!-- <div *ngIf="afAuth.user | async as user; else showOther" class="lead">
+        <a class="btn btn-lg btn-secondary">LOGGED IN</a>
+        <h3>{{user.displayName}}</h3>
+        <p>UID: {{user.uid}}</p>
+        <h6>email: {{user.email}}</h6>
+        <img [src]="user.photoURL">
+      </div> -->
+
+  <div *ngIf="afAuth.user | async as user; else showOther" class="container text-center my-auto">
+    <h1 class="mb-1">Quick News</h1>
+    <h3 class="mb-5">
+      <em>Welcome, {{user.displayName}}</em>
+    </h3>
+    <a class="btn btn-primary btn-xl js-scroll-trigger">Logged IN</a>
+  </div>
+  <div class="overlay"></div>
+</header>
+
+<ng-template #showOther>
+    <div class="container text-center my-auto">
+        <h1 class="mb-1">Quick News</h1>
+        <h3 class="mb-5">
+          <em>Online Portal for NEWS</em>
+        </h3>
+        <a (click)="auth.googleLogin()" class="btn btn-primary btn-xl js-scroll-trigger" >LOGIN</a>
+      </div>
+      <div class="overlay"></div>
+    <!-- <p class="lead">
+      <a (click)="auth.googleLogin()" class="btn btn-primary btn-xl js-scroll-trigger">LOGIN WITH GOOGLE</a>
+    </p> -->
+  </ng-template>
+
+<!-- <div class="bg" style="background-image:2.jpg"></div> -->

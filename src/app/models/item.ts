@@ -6,4 +6,5 @@ export interface Item {
     stream?:string;
     description?:string;
     image?:any;
+    language?:string;
   }
