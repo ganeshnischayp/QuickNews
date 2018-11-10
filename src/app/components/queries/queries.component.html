@@ -5,11 +5,18 @@
   <button (click)="filterByCategory('sports')" type="button" class="btn btn-secondary">Sports</button>
   <button (click)="filterByCategory('information')" type="button" class="btn btn-secondary">Information</button>
   <button (click)="filterByCategory('politics')" type="button" class="btn btn-secondary">Politics</button>
+  <button (click)="filterByCategory(null)">
+    <em>clear filter</em>
+  </button>
+
 </div>
 <div class="btn-group" role="group" aria-label="Basic example">
   <button (click)="filterByStream('national')" type="button" class="btn btn-secondary">National</button>
   <button (click)="filterByStream('international')" type="button" class="btn btn-secondary">International</button>
   <button (click)="filterByCategory('advertisement')" type="button" class="btn btn-secondary">Advertisement</button>
+  <button (click)="filterByStream(null)">
+      <em>clear filter</em>
+    </button>
 </div>
 <p>
 
@@ -28,6 +35,7 @@
     <button (click)="filterByRegion('assam')" class="dropdown-item" type="button">Assam</button>
     <button (click)="filterByRegion('bihar')" class="dropdown-item" type="button">Bihar</button>
     <button (click)="filterByRegion('delhi')" class="dropdown-item" type="button">Delhi</button>
+    <button (click)="filterByRegion(null)" class="dropdown-item" type="button">Clear filter</button>
 
 
 
@@ -46,6 +54,7 @@
     <button (click)="filterByLanguage('hindi')" class="dropdown-item" type="button">Hindi</button>
     <button (click)="filterByLanguage('english')" class="dropdown-item" type="button">English</button>
     <button (click)="filterByLanguage('malayalam')" class="dropdown-item" type="button">Malayalam</button>
+    <button (click)="filterByLanguage(clear)" class="dropdown-item" type="button">Clear Filter</button>
 
 
 
