@@ -24,7 +24,7 @@
   </nav> -->
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="font-family: 'Quicksand', sans-serif; font-size: 20px">
   <a class="navbar-brand" href="#"><i>QuickNews</i> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -35,26 +35,39 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only"></span></a>
       </li>
-      <li  class="nav-item">
+      <!-- <li  class="nav-item">
         <a class="nav-link" [routerLink]="['/additem']">ADD NEWS</a>
+      </li> -->
+      <li *ngIf="afAuth.user | async as user" class="nav-item">
+        <a class="nav-link" [routerLink]="['/item']">News</a>
       </li>
       <li *ngIf="afAuth.user | async as user" class="nav-item">
-        <a class="nav-link" [routerLink]="['/item']">NEWS</a>
+        <a class="nav-link" [routerLink]="['/queries']">Queries</a>
       </li>
+      
+
       <li *ngIf="afAuth.user | async as user" class="nav-item">
-        <a class="nav-link" [routerLink]="['/queries']">QUERIES</a>
+        <a class="nav-link" [routerLink]="['/subscribe']">NewsPaper</a>
       </li>
-      <li *ngIf="afAuth.user | async as user" class="nav-item">
-        <a class="nav-link" [routerLink]="['/subscribe']">SUBSCRIBE_OFFLINE</a>
-      </li>
-      <li *ngIf="afAuth.user | async as user" class="nav-item">
+      <!-- <li *ngIf="afAuth.user | async as user" class="nav-item">
           <a class="nav-link" [routerLink]="['/subscribers']">VIEW_SUBSCRIBES</a>
-        </li>
+        </li> -->
       <!-- <li #showLogin class="nav-item">
         <a class="nav-link" (click)="login()" style="cursor: pointer;" >LOGIN</a>
       </li> -->
       <li *ngIf="afAuth.user | async as user" class="nav-item">
           <a class="nav-link" (click)="logout()" style="cursor: pointer;">LOGOUT</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/subscribers']">View Subscribers</a>
+          <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/additem']">Add News</a>
+          <div class="dropdown-divider"></div>
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
       </li>
     </ul>
     

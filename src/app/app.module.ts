@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'queries', component: QueriesComponent},
   { path: 'queries/:id', component: ItemDescComponent },
   { path: 'subscribe', component: SubscribeComponent },
-  { path: 'subscribers', component:ViewSubscribersComponent }
+  { path: 'subscribers', component:ViewSubscribersComponent, canActivate: [AdminGuard] }
 
 ];
 
