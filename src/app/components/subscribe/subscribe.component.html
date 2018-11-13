@@ -48,28 +48,32 @@
       <legend class="col-form-label col-sm-2 pt-0">Select</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios1" value="English" >
+          <input class="form-check-input" type="radio" name="language" [(ngModel)]="subscriber.language" id="gridRadios1"
+            value="English">
           <label class="form-check-label" for="gridRadios1">
             English
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios2" value="Kannada">
+          <input class="form-check-input" type="radio" name="language" [(ngModel)]="subscriber.language" id="gridRadios2"
+            value="Kannada">
           <label class="form-check-label" for="gridRadios2">
             Kannada
           </label>
         </div>
 
         <div class="form-check ">
-          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios3" value="Malayalam" >
+          <input class="form-check-input" type="radio" name="language" [(ngModel)]="subscriber.language" id="gridRadios3"
+            value="Malayalam">
           <label class="form-check-label" for="gridRadios3">
             Malayalam
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios2" value="Hindi">
+          <input class="form-check-input" type="radio" name="language" [(ngModel)]="subscriber.language" id="gridRadios2"
+            value="Hindi">
           <label class="form-check-label" for="gridRadios2">
             Hindi
           </label>
@@ -81,7 +85,8 @@
 
   <br>
 
-  <select class="custom-select" name="plan" placeholder="Choose Subscription" [(ngModel)]="subscriber.plan">
+  <legend class="col-form-label col-sm-2 pt-0">Select</legend>
+  <select class="custom-select" name="plan" [(ngModel)]="subscriber.plan">
     <option value="1 month @ Rs.100">1 month @ Rs.100</option>
     <option value="6 months @ Rs.500">6 months @ Rs.500</option>
     <option value="1 Year @ Rs.1000">1 Year @ Rs.1000</option>
