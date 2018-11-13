@@ -2,10 +2,10 @@
 <div *ngIf="authors?.length > 0;else noItems">
   <ul *ngFor="let author of authors" style="list-style:none">
     <li>
-      <h2>{{author.name}}</h2>
-      <h5>{{author.age}}</h5>
-      <p>{{author.address}}</p>
-      <p>{{author.contact}}</p>
+      <h2>Name: {{author.name}}</h2>
+      <h5>Age: {{author.age}}</h5>
+      <p>Address: {{author.address}}</p>
+      <p>Contact: {{author.contact}}</p>
 
 
 
