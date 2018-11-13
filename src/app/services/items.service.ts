@@ -29,13 +29,13 @@ export class ItemsService {
   items: Observable<Item[]>;
   authors: Observable<Author[]>;
   subscribers: Observable<Subscriber[]>;
-  itema:Observable<any>;
-  itemDoc: AngularFirestoreDocument <Item>;
+  itema: Observable<any>;
+  itemDoc: AngularFirestoreDocument<Item>;
 
   constructor(
     private afs: AngularFirestore,
     private storage: AngularFireStorage
-    ) {
+  ) {
 
     this.itemsCollection = this.afs.collection('items');
     this.subscriberCollection = this.afs.collection('subscribers');
@@ -43,62 +43,64 @@ export class ItemsService {
 
     // this.itemsCollection = this.afs.collection('items',ref => ref.orderBy('title','asc'));
 
+  }
 
-    this.items = this.afs.collection('items',ref => ref.orderBy('datetime','desc')).snapshotChanges().pipe(
-      map(changes => { return changes.map(a => {
-        const data = a.payload.doc.data() as Item;
-        data.id = a.payload.doc.id;
-        return data;
-      })})
+  getItems() {
+    this.items = this.afs.collection('items', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as Item;
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      })
     )
-
+    return this.items;
+  }
+  getSubscribes() {
     this.subscribers = this.afs.collection('subscribers').snapshotChanges().pipe(
-      map(changes => { return changes.map(a => {
-        const data = a.payload.doc.data() as Subscriber;
-        // data.id = a.payload.doc.id;
-        return data;
-      })})
+      map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as Subscriber;
+          // data.id = a.payload.doc.id;
+          return data;
+        })
+      })
     )
-
+    return this.subscribers;
+  }
+  getAuthors() {
     this.authors = this.afs.collection('author').snapshotChanges().pipe(
-      map(changes => { return changes.map(a => {
-        const data = a.payload.doc.data() as Author;
-        //data.id = a.payload.doc.id;
-        return data;
-      })})
+      map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as Author;
+          //data.id = a.payload.doc.id;
+          return data;
+        })
+      })
     )
-   
-  }
-
-  getItems(){
-    return this.items; 
-  }
-  getSubscribes(){
-    return this.subscribers; 
-  }
-  getAuthors(){
     return this.authors;
   }
-  
-  getItemDesc(id){
+
+  getItemDesc(id) {
     // this.itemsCollection = this.afs.collection('items', ref => {
     //   console.log(idd);
     //   return ref.where('id','==','itmczE2Fe811No1sM8Aie');
     // });
     // this.itema = this.itemsCollection.valueChanges();
     // return this.itema;
-    this.itemDoc = this.afs.doc('items/'+id);
+    this.itemDoc = this.afs.doc('items/' + id);
     this.itema = this.itemDoc.valueChanges()
     return this.itema;
   }
 
-  addImage(item: Item){
+  addImage(item: Item) {
     // const file = event.target.files[0];
     // const filePath = file[0];
     // const task = this.storage.upload(filePath, file);
     for (const selectedfile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
       const path = `${selectedfile.name}`;
-      this.storage.upload(path,selectedfile)
+      this.storage.upload(path, selectedfile)
       // .then((_snapshot) => {
       //   item.image = selectedfile.name;
       //   // item.title = item.title;
@@ -108,21 +110,21 @@ export class ItemsService {
 
       // })
 
-      const data: Item =  {
-        title:item.title,
-        category:item.category,
-        region:item.region,
-        stream:item.stream,
+      const data: Item = {
+        title: item.title,
+        category: item.category,
+        region: item.region,
+        stream: item.stream,
         description: item.description,
         language: item.language,
-        image:path,
-        author:item.author,
-        datetime:item.datetime
+        image: path,
+        author: item.author,
+        datetime: item.datetime
       }
       this.itemsCollection.add(data)
 
     }
-    
+
     // this.itemsCollection.add(item);
   }
   addItem(item: Item) {
@@ -133,21 +135,21 @@ export class ItemsService {
     this.subscriberCollection.add(subscriber);
   }
 
-  deleteItem(item: Item){
+  deleteItem(item: Item) {
     this.itemDoc = this.afs.doc(`items/${item.id}`);
     // console.log(this.itemDoc);
-    this.itemDoc.delete().then(function() {
+    this.itemDoc.delete().then(function () {
       console.log("Successfully deleted");
 
     });
     // this.itemDoc = this.afs.doc("items/${item.id}");
     // this.itemDoc.set({
-      
+
     // })
 
 
   }
-  updateItem(item: Item){
+  updateItem(item: Item) {
     this.itemDoc = this.afs.doc(`items/${item.id}`);
     // console.log(this.itemDoc);
     this.itemDoc.update(item);

@@ -20,7 +20,7 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     // console.log('ngOnInit ran');
     this.ItemsService.getItems().subscribe(items => {
-      console.log(items);
+      //console.log(items);
       this.items = items;
     })
   }
