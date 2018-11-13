@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Item } from '../models/item';
 import { Subscriber } from '../models/subscriber';
+import { Author } from '../models/author';
+
 
 import { map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -21,8 +23,11 @@ import { identifierModuleUrl } from '@angular/compiler';
 export class ItemsService {
   private itemsCollection: AngularFirestoreCollection<Item>;
   private subscriberCollection: AngularFirestoreCollection<Subscriber>;
+  private authorCollection: AngularFirestoreCollection<Author>;
+
   private document: AngularFirestoreDocument<Item>;
   items: Observable<Item[]>;
+  authors: Observable<Author[]>;
   subscribers: Observable<Subscriber[]>;
   itema:Observable<any>;
   itemDoc: AngularFirestoreDocument <Item>;
@@ -34,6 +39,8 @@ export class ItemsService {
 
     this.itemsCollection = this.afs.collection('items');
     this.subscriberCollection = this.afs.collection('subscribers');
+    this.authorCollection = this.afs.collection('author');
+
     // this.itemsCollection = this.afs.collection('items',ref => ref.orderBy('title','asc'));
 
 
@@ -52,6 +59,14 @@ export class ItemsService {
         return data;
       })})
     )
+
+    this.authors = this.afs.collection('author').snapshotChanges().pipe(
+      map(changes => { return changes.map(a => {
+        const data = a.payload.doc.data() as Author;
+        //data.id = a.payload.doc.id;
+        return data;
+      })})
+    )
    
   }
 
@@ -61,6 +76,10 @@ export class ItemsService {
   getSubscribes(){
     return this.subscribers; 
   }
+  getAuthors(){
+    return this.authors;
+  }
+  
   getItemDesc(id){
     // this.itemsCollection = this.afs.collection('items', ref => {
     //   console.log(idd);

@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'queries', component: QueriesComponent},
   { path: 'queries/:id', component: ItemDescComponent },
   { path: 'subscribe', component: SubscribeComponent },
-  { path: 'subscribers', component:ViewSubscribersComponent, canActivate: [AdminGuard] }
+  { path: 'subscribers', component:ViewSubscribersComponent, canActivate: [AdminGuard] },
+  { path: 'authors', component:AuthorsComponent}
 
 ];
 
@@ -31,7 +32,7 @@ const routes: Routes = [
 
   ],
   exports: [RouterModule],
-  declarations: [HomeComponent, ItemDescComponent, QueriesComponent, SubscribeComponent, ViewSubscribersComponent]
+  declarations: [HomeComponent, ItemDescComponent, QueriesComponent, SubscribeComponent, ViewSubscribersComponent,AuthorsComponent]
 })
 export class AppRoutingModule { }
 
@@ -52,7 +53,7 @@ import { AdminGuard } from './core/admin.guard';
 import { QueriesComponent } from './components/queries/queries.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { ViewSubscribersComponent } from './components/view-subscribers/view-subscribers.component';
-
+import { AuthorsComponent } from './components/authors/authors.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ViewSubscribersComponent } from './components/view-subscribers/view-sub
     ItemDescComponent,
     QueriesComponent,
     SubscribeComponent,
-    ViewSubscribersComponent
+    ViewSubscribersComponent,
+    AuthorsComponent
   ],
   imports: [
     BrowserModule,
