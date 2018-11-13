@@ -39,7 +39,7 @@ export class SubscribeComponent implements OnInit {
 
 
     }
-    this.flashMessage.show("You are successfully subscriber to our offline mode", { cssClass: 'alert-success', timeout: 6000 });
+    this.flashMessage.show("You are successfully subscribed to our offline mode", { cssClass: 'alert-success', timeout: 6000 });
     this.router.navigate(['']);
   }
 
