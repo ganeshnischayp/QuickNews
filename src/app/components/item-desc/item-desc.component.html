@@ -8,7 +8,7 @@
     <p>Stream: {{items?.stream}}</p>
     <img  class="thumbnail" [src]="profileUrl | async" height="300" width="300">
 </div> -->
-<a [routerLink]="[ '/item']">Go Back</a>
+<!-- <a [routerLink]="[ '/item']">Go Back</a>
 <div id="about" class="about-area area-padding">
     <div class="container">
         <div class="row">
@@ -39,6 +39,41 @@
                         </p>
                         <p>Region: {{items?.region}}</p>
                         <p>Stream: {{items?.stream}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<a [routerLink]="[ '/item']">Go Back</a>
+<div id="about" class="about-area area-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="section-headline text-center">
+                    <h2>{{items?.title }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="well-left">
+                    <div class="single-well">
+
+                        <img class="thumbnail" [src]="profileUrl | async" height="350" width="400">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="well-middle">
+                    <div class="single-well">
+                        <h4 class="sec-head"><button type="button" class="btn btn-success" style="margin:5px;">{{items?.category}}</button></h4>
+                        <p>
+                            {{items?.description }}
+                        </p>
+                        <p>Region:<button type="button" class="btn btn-primary" style="margin:5px;">{{items?.region}}</button></p>
+                        <p>Stream:<button type="button" class="btn btn-secondary " style="margin:5px;">{{items?.stream}}</button></p>
 
                     </div>
                 </div>
