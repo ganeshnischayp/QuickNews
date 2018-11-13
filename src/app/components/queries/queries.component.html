@@ -4,16 +4,19 @@
 <div class="btn-group" role="group" aria-label="Basic example">
   <button (click)="filterByCategory('sports')" type="button" class="btn btn-secondary">Sports</button>
   <button (click)="filterByCategory('information')" type="button" class="btn btn-secondary">Information</button>
+  <button (click)="filterByCategory('advertisement')" type="button" class="btn btn-secondary">Advertisement</button>
+
   <button (click)="filterByCategory('politics')" type="button" class="btn btn-secondary">Politics</button>
   <button (click)="filterByCategory(null)">
     <em>clear filter</em>
   </button>
 
 </div>
+&nbsp;
+
 <div class="btn-group" role="group" aria-label="Basic example">
   <button (click)="filterByStream('national')" type="button" class="btn btn-secondary">National</button>
   <button (click)="filterByStream('international')" type="button" class="btn btn-secondary">International</button>
-  <button (click)="filterByCategory('advertisement')" type="button" class="btn btn-secondary">Advertisement</button>
   <button (click)="filterByStream(null)">
     <em>clear filter</em>
   </button>
@@ -21,6 +24,8 @@
 <p>
 
 </p>
+&nbsp;
+
 <div class="dropdown" style="display:inline-block;">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
     aria-haspopup="true" aria-expanded="false">
@@ -59,7 +64,7 @@
 
 
   </div>
- 
+
 </div>
 
 
@@ -76,11 +81,11 @@
     <button (click)="filterByAuthor('suresh')" class="dropdown-item" type="button">Suresh</button>
     <button (click)="filterByAuthor('pradyumnya')" class="dropdown-item" type="button">Pradumnya</button>
     <button (click)="filterByAuthor(clear)" class="dropdown-item" type="button">Clear Filter</button>
-  
-  
-  
+
+
+
   </div>
- 
+
 </div>
 
 
@@ -125,15 +130,3 @@
     <strong>LOADING WAIT</strong>
   </div>
 </ng-template>
-
-
-
-
-
-
-
-
-
-
-
-
