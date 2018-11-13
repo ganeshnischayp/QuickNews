@@ -96,7 +96,9 @@ export class ItemsService {
         stream:item.stream,
         description: item.description,
         language: item.language,
-        image:path
+        image:path,
+        author:item.author,
+        datetime:item.datetime
       }
       this.itemsCollection.add(data)
 

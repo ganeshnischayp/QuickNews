@@ -7,4 +7,6 @@ export interface Item {
     description?:string;
     image?:any;
     language?:string;
+    author?:string;
+    datetime?: number;
   }
