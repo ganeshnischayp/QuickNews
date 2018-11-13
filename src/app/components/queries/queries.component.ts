@@ -48,11 +48,11 @@ export class QueriesComponent implements OnInit {
       switchMap(([category, stream, region, language]) =>
         afs.collection<Item>('items', ref => {
           let query: firebase.firestore.CollectionReference | firebase.firestore.Query  = ref;
-          if (category) { query = query.where('category', '==', category).orderBy('datetime','desc') };
-          if (stream) { query = query.where('stream', '==', stream).orderBy('datetime','desc') };
-          if (region) { query = query.where('region', '==', region).orderBy('datetime','desc')};
-          if (language) { query = query.where('language', '==', language).orderBy('datetime','desc') };
-          return query;
+          if (category) { query = query.where('category', '==', category) };
+          if (stream) { query = query.where('stream', '==', stream) };
+          if (region) { query = query.where('region', '==', region)};
+          if (language) { query = query.where('language', '==', language) };
+          return query.orderBy('datetime','desc');
         }).valueChanges()
       )
     );
