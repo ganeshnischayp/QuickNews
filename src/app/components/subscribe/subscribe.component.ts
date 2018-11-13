@@ -17,7 +17,9 @@ export class SubscribeComponent implements OnInit {
   name: '',
   email: '',
   address: '',
-  number: ''
+  number: '',
+  language: '',
+  plan: ''
 }
 
   constructor(

@@ -1,14 +1,18 @@
-<div *ngIf="subscribers?.length > 0;else noItems" >
+<div *ngIf="subscribers?.length > 0;else noItems">
   <ul *ngFor="let subscriber of subscribers" style="list-style:none">
-    <li>
-      <h2>{{subscriber.name}}</h2>
-      <h5>{{subscriber.email}}</h5>
-      <p>{{subscriber.address}}</p>
-      <p>{{subscriber.number}}</p>
+    <div class="alert alert-success">
+      <li>
+        <h2>Name: {{subscriber.name}}</h2>
+        <h5>email: {{subscriber.email}}</h5>
+        <p>Address: {{subscriber.address}}</p>
+        <p>Number: {{subscriber.number}}</p>
+        <p>Language: {{subscriber.language}}</p>
+        <p>Plan: {{subscriber.plan}}</p>
 
 
 
-    </li>
+      </li>
+    </div>
   </ul>
 </div>
 

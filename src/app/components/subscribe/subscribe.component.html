@@ -1,4 +1,4 @@
-<p></p>
+<!-- <p></p>
 <form  (ngSubmit)="onSubmit()">
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
@@ -29,6 +29,94 @@
   </div>
 
  
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </div>
+  </div>
+</form> -->
+
+<p></p>
+<form (ngSubmit)="onSubmit()">
+
+  <h2>Subscribe to our <span class="badge badge-primary">offline Newspaper!</span></h2><br>
+  <h4><span class="badge badge-secondary">Select Language</span></h4>
+  <br>
+
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios1" value="English" >
+          <label class="form-check-label" for="gridRadios1">
+            English
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios2" value="Kannada">
+          <label class="form-check-label" for="gridRadios2">
+            Kannada
+          </label>
+        </div>
+
+        <div class="form-check ">
+          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios3" value="Malayalam" >
+          <label class="form-check-label" for="gridRadios3">
+            Malayalam
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="language"  [(ngModel)]="subscriber.language" id="gridRadios2" value="Hindi">
+          <label class="form-check-label" for="gridRadios2">
+            Hindi
+          </label>
+        </div>
+
+      </div>
+    </div>
+  </fieldset>
+
+  <br>
+
+  <select class="custom-select" name="plan" placeholder="Choose Subscription" [(ngModel)]="subscriber.plan">
+    <option value="1 month @ Rs.100">1 month @ Rs.100</option>
+    <option value="6 months @ Rs.500">6 months @ Rs.500</option>
+    <option value="1 Year @ Rs.1000">1 Year @ Rs.1000</option>
+  </select><br><br>
+
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" placeholder="Enter name here" [(ngModel)]="subscriber.name">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" placeholder="Enter email here" [(ngModel)]="subscriber.email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="address" placeholder="Enter address here" [(ngModel)]="subscriber.address">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="address" placeholder="Enter phone number here" [(ngModel)]="subscriber.number">
+    </div>
+  </div>
+
+
   <div class="form-group row">
     <div class="col-sm-10">
       <button type="submit" class="btn btn-primary">Subscribe</button>
