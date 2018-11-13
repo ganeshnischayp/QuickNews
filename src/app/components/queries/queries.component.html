@@ -15,8 +15,8 @@
   <button (click)="filterByStream('international')" type="button" class="btn btn-secondary">International</button>
   <button (click)="filterByCategory('advertisement')" type="button" class="btn btn-secondary">Advertisement</button>
   <button (click)="filterByStream(null)">
-      <em>clear filter</em>
-    </button>
+    <em>clear filter</em>
+  </button>
 </div>
 <p>
 
@@ -59,6 +59,28 @@
 
 
   </div>
+ 
+</div>
+
+
+&nbsp;
+<div class="dropdown" style="display:inline-block;">
+
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    Author
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button (click)="filterByAuthor('lankesh')" class="dropdown-item" type="button">Lankesh</button>
+    <button (click)="filterByAuthor('saikumar')" class="dropdown-item" type="button">Saikumar</button>
+    <button (click)="filterByAuthor('suresh')" class="dropdown-item" type="button">Suresh</button>
+    <button (click)="filterByAuthor('pradyumnya')" class="dropdown-item" type="button">Pradumnya</button>
+    <button (click)="filterByAuthor(clear)" class="dropdown-item" type="button">Clear Filter</button>
+  
+  
+  
+  </div>
+ 
 </div>
 
 
@@ -103,3 +125,15 @@
     <strong>LOADING WAIT</strong>
   </div>
 </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+

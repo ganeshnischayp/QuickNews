@@ -37,21 +37,24 @@ export class QueriesComponent implements OnInit {
     this.streamFilter$ = new BehaviorSubject(null);
     this.regionFilter$ = new BehaviorSubject(null);
     this.languageFilter$ = new BehaviorSubject(null);
+    this.authorFilter$ = new BehaviorSubject(null);
 
     
     this.items = combineLatest(
       this.categoryFilter$,
       this.streamFilter$,
       this.regionFilter$,
-      this.languageFilter$
+      this.languageFilter$,
+      this.authorFilter$
     ).pipe(
-      switchMap(([category, stream, region, language]) =>
+      switchMap(([category, stream, region, language, author]) =>
         afs.collection<Item>('items', ref => {
           let query: firebase.firestore.CollectionReference | firebase.firestore.Query  = ref;
           if (category) { query = query.where('category', '==', category) };
           if (stream) { query = query.where('stream', '==', stream) };
           if (region) { query = query.where('region', '==', region)};
           if (language) { query = query.where('language', '==', language) };
+          if ( author ) { query = query.where('author', '==' , author) };
           return query.orderBy('datetime','desc');
         }).valueChanges()
       )
