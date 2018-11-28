@@ -44,9 +44,10 @@ export class ItemsService {
     // this.itemsCollection = this.afs.collection('items',ref => ref.orderBy('title','asc'));
 
   }
+///////////////////////////////////////changed here
 
   getItems() {
-    this.items = this.afs.collection('items', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
+    this.items = this.afs.collection('news', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
       map(changes => {
         return changes.map(a => {
           const data = a.payload.doc.data() as Item;
@@ -81,7 +82,7 @@ export class ItemsService {
     )
     return this.authors;
   }
-
+///////////////////////////////////////changed here
   getItemDesc(id) {
     // this.itemsCollection = this.afs.collection('items', ref => {
     //   console.log(idd);
@@ -89,7 +90,7 @@ export class ItemsService {
     // });
     // this.itema = this.itemsCollection.valueChanges();
     // return this.itema;
-    this.itemDoc = this.afs.doc('items/' + id);
+    this.itemDoc = this.afs.doc('news/' + id);
     this.itema = this.itemDoc.valueChanges()
     return this.itema;
   }
