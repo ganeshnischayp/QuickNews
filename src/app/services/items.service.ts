@@ -47,7 +47,7 @@ export class ItemsService {
 ///////////////////////////////////////changed here
 
   getItems() {
-    this.items = this.afs.collection('news', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
+    this.items = this.afs.collection('items', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
       map(changes => {
         return changes.map(a => {
           const data = a.payload.doc.data() as Item;
@@ -90,7 +90,7 @@ export class ItemsService {
     // });
     // this.itema = this.itemsCollection.valueChanges();
     // return this.itema;
-    this.itemDoc = this.afs.doc('news/' + id);
+    this.itemDoc = this.afs.doc('items/' + id);
     this.itema = this.itemDoc.valueChanges()
     return this.itema;
   }
@@ -138,6 +138,7 @@ export class ItemsService {
 
   deleteItem(item: Item) {
     this.itemDoc = this.afs.doc(`items/${item.id}`);
+    console.log(`items/${item.id}`);
     // console.log(this.itemDoc);
     this.itemDoc.delete().then(function () {
       console.log("Successfully deleted");
