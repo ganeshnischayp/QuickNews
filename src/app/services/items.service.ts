@@ -37,7 +37,7 @@ export class ItemsService {
     private storage: AngularFireStorage
   ) {
 
-    this.itemsCollection = this.afs.collection('items');
+    this.itemsCollection = this.afs.collection('test');
     this.subscriberCollection = this.afs.collection('subscribers');
     this.authorCollection = this.afs.collection('author');
 
@@ -47,7 +47,7 @@ export class ItemsService {
 ///////////////////////////////////////changed here
 
   getItems() {
-    this.items = this.afs.collection('items', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
+    this.items = this.afs.collection('test', ref => ref.orderBy('datetime', 'desc')).snapshotChanges().pipe(
       map(changes => {
         return changes.map(a => {
           const data = a.payload.doc.data() as Item;
@@ -137,8 +137,8 @@ export class ItemsService {
   }
 
   deleteItem(item: Item) {
-    this.itemDoc = this.afs.doc(`items/${item.id}`);
-    console.log(`items/${item.id}`);
+    this.itemDoc = this.afs.doc(`test/${item.id}`);
+    console.log(`test/${item.id}`);
     // console.log(this.itemDoc);
     this.itemDoc.delete().then(function () {
       console.log("Successfully deleted");

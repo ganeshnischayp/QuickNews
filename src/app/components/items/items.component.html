@@ -35,17 +35,18 @@
     <ul *ngFor="let item of items" style="list-style:none">
       <li>
         <div class="card-header bg-primary">
-          {{item.category}}
+          Author: {{item.author}}
         </div>
         <div class="card-body">
           <h5 class="card-title">{{item.title}}</h5>
           <p class="card-text">{{item.description}}</p>
-          <a [routerLink]="['/item/'+item.id]" class="btn btn-primary">Read More</a>
+          <a href={{item.url}} class="btn btn-primary">Read More</a>
           &nbsp;
           <a (click)="deleteItem(item)" class="btn btn-primary">Delete News</a>
         </div>
         <div class="card-footer text-muted  bg-dark">
-          {{item.stream}} 
+          Published At: 
+          {{item.time}} 
         </div>
     </li>
     </ul>

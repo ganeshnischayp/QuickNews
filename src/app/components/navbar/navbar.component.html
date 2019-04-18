@@ -41,9 +41,9 @@
       <li *ngIf="afAuth.user | async as user" class="nav-item">
         <a class="nav-link" [routerLink]="['/item']">News</a>
       </li>
-      <li *ngIf="afAuth.user | async as user" class="nav-item">
+      <!-- <li *ngIf="afAuth.user | async as user" class="nav-item">
         <a class="nav-link" [routerLink]="['/queries']">Queries</a>
-      </li>
+      </li> -->
       
 
       <li *ngIf="afAuth.user | async as user" class="nav-item">
@@ -65,7 +65,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/subscribers']">View Subscribers</a>
           <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/additem']">Add News</a>
-          <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/authors']">Authors</a>
+          <!-- <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/authors']">Authors</a> -->
           <!-- <a class="dropdown-item" *ngIf="afAuth.user | async as user" [routerLink]="['/erdiagram']">ER Diagram</a> -->
 
           <div class="dropdown-divider"></div>
